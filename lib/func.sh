@@ -132,8 +132,10 @@ function get_recordid() {
 
         if [ "$iTYPE" == "$RECORDTYPE" ]
         then
-            iNAME=`echo $i  | awk -F "|" '{print $1}'`
-            iRECORDID=`echo $i  | awk -F "|" '{print $2}'`
+    
+            # see https://github.com/linickx/rsdns/issues/37
+            iNAME=`echo $i  | awk -F "|" '{print $2}'`
+            iRECORDID=`echo $i  | awk -F "|" '{print $1}'`
         fi
 
         if [ "$iNAME" == "$NAME" ]
